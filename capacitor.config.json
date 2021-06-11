@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "justpost",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

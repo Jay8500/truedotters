@@ -1,0 +1,7 @@
+{
+  "name": "justpost",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
