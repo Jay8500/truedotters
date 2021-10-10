@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <ion-searchbar autocomplete="off" placeholder="Search for dotters" [(ngModel)]="dottersearch"></ion-searchbar>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="!dataShow">
+    <ion-list>
+      <ion-item *ngFor="let dot of dotters | filterme :dottersearch ; let dotIn = index;">
+        <ion-avatar slot="start">
+          <img src="../../assets/justpostsimages/little.jpg">
+        </ion-avatar>
+        <ion-label>
+          <span> {{dot.dotter}}</span>
+          <!-- <!-- <span style="font-size: small;"> role: {{ dot.dotterdevelopment}}</span>
+        <span style="font-size: small;"> {{ dot.dotterpoints}} pts</span> -->
+          <span>
+            <ion-chip>
+              <ion-label class="text-black">{{ dot.dotterdevelopment}}</ion-label>
+            </ion-chip>
+          </span>
+          <span>
+            <ion-chip>
+              <ion-label class="text-black"> {{ dot.dotterrank}} rank</ion-label>
+            </ion-chip>
+          </span>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="dataShow">
+    <ion-list>
+      <ion-item *ngFor="let dot of dotters | filterme :dottersearch ; let dotIn = index;">
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated style="width: 40px; height: 40px"></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <span>
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </span>
+          <!-- <!-- <span style="font-size: small;"> role: {{ dot.dotterdevelopment}}</span>
+        <span style="font-size: small;"> {{ dot.dotterpoints}} pts</span> -->
+          <span>
+            <ion-chip>
+              <ion-skeleton-text animated ></ion-skeleton-text>
+            </ion-chip>
+          </span>
+          <span>
+            <ion-chip>
+              <ion-skeleton-text animated ></ion-skeleton-text>
+            </ion-chip>
+          </span>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
